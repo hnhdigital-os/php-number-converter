@@ -9,14 +9,19 @@ class NumberConverter
      *
      * @var array
      */
-    private static $error_codes = [
-        101 => 'Error: Please insert a valid number.',
-        102 => 'Error: 2nd parameter is required. Ex. convert(21,R).',
-        103 => "Error: Invalid 2nd parameter. Use 'R' for Roman, 'W' for Words and 'O' for Ordinal numbers.",
-        104 => 'Error: Only integers from 1 to 3999 are convertible into Roman.',
-        105 => 'Error: Word converter accepts numbers between -'.PHP_INT_MAX.' and '.PHP_INT_MAX,
-        106 => "Error: Negetive numbers can't have ordinal suffix.",
-    ];
+     private static $error_codes = [];
+
+     public function __construct()
+     {
+         static::$error_codes = [
+             101 => 'Error: Please insert a valid number.',
+             102 => 'Error: 2nd parameter is required. Ex. convert(21,R).',
+             103 => "Error: Invalid 2nd parameter. Use 'R' for Roman, 'W' for Words and 'O' for Ordinal numbers.",
+             104 => 'Error: Only integers from 1 to 3999 are convertible into Roman.',
+             105 => 'Error: Word converter accepts numbers between -' . PHP_INT_MAX . ' and ' . PHP_INT_MAX,
+             106 => "Error: Negetive numbers can't have ordinal suffix.",
+         ];
+     }
 
     /**
      * Covert provided number to requested type.
