@@ -42,8 +42,8 @@ matrix:
     - php: nightly
       env:
         - DEPS=latest
-    allow_failures:
-      - php: nightly
+  allow_failures:
+    - php: nightly
  
 install:
   - apt-get update -yqq
