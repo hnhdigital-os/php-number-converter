@@ -46,8 +46,6 @@ matrix:
     - php: nightly
  
 install:
-  - apt-get update -yqq
-  - apt-get install git -yqq
   - pecl install xdebug
   - docker-php-ext-enable xdebug
   - travis_retry composer install $COMPOSER_ARGS --ignore-platform-reqs
