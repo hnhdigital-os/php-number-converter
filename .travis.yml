@@ -1,16 +1,22 @@
+
+language: php
+
 php:
   - 7.2
   - 7.3
   - 7.4
-  - 8.0snapshot
-language: php
+  - 8.0
+  - nightly
+ 
 before_script:
   - composer self-update
   - composer install --prefer-dist --no-interaction
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
+ 
 after_script:
   - ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT
+ 
 allowed_failures:
-  - 8.0snapshot
+  - nightly
